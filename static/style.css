@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e3a8a; /* Background color */
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 50px;
+}
+
+.form-container,
+.result-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 30px auto;
+  color: #000; /* Make text black for visibility */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input[type="number"],
+input[type="radio"] {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.radio-group {
+  margin-top: 5px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+button,
+.btn-submit {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover,
+.btn-submit:hover {
+  background-color: #45a049;
+}
+
+a {
+  text-decoration: none;
+}

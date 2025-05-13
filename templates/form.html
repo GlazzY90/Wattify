@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Anda</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Data Anda</h2>
+      <form action="/form" method="POST">
+        <div class="form-group">
+          <label for="jumlah_ruangan">Jumlah Ruangan:</label>
+          <input
+            type="number"
+            id="jumlah_ruangan"
+            name="jumlah_ruangan"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="jumlah_orang">Jumlah Orang:</label>
+          <input type="number" id="jumlah_orang" name="jumlah_orang" required />
+        </div>
+
+        <div class="form-group">
+          <label for="luas_rumah">Luas Rumah:</label>
+          <input
+            type="number"
+            id="luas_rumah"
+            name="luas_rumah"
+            required
+            step="0.01"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="pendapatan_bulanan">Pendapatan Bulanan:</label>
+          <input
+            type="number"
+            id="pendapatan_bulanan"
+            name="pendapatan_bulanan"
+            required
+            step="0.01"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="jumlah_anak">Jumlah Anak:</label>
+          <input type="number" id="jumlah_anak" name="jumlah_anak" required />
+        </div>
+
+        <button type="submit" class="btn-submit">Selanjutnya</button>
+      </form>
+    </div>
+  </body>
+</html>

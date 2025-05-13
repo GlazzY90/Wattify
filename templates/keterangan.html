@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keterangan</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #003366;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .form-container {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        width: 350px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .radio-group label {
+        font-weight: normal;
+        color: #333;
+        margin-right: 10px; /* Adjust margin to control the space between radio buttons */
+        margin-bottom: 10px; /* Adjust this if you want to control vertical space between rows */
+        display: inline-block;
+      }
+
+      .btn-submit {
+        background-color: #5a9e6f;
+        color: white;
+        padding: 10px 15px;
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .btn-submit:hover {
+        background-color: #4e8d5b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Keterangan</h2>
+      <form action="/keterangan" method="POST">
+        <div class="form-group">
+          <label for="ac">Menggunakan AC:</label>
+          <div class="radio-group">
+            <label
+              ><input type="radio" name="ac" value="Ya" required /> Ya</label
+            >
+            <label><input type="radio" name="ac" value="Tidak" /> Tidak</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tv">Memiliki TV:</label>
+          <div class="radio-group">
+            <label
+              ><input type="radio" name="tv" value="Ya" required /> Ya</label
+            >
+            <label><input type="radio" name="tv" value="Tidak" /> Tidak</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="flat">Tipe Flat:</label>
+          <div class="radio-group">
+            <label
+              ><input type="radio" name="flat" value="Ya" required /> Ya</label
+            >
+            <label
+              ><input type="radio" name="flat" value="Tidak" /> Tidak</label
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="area_urban">Tinggal di Area Urban:</label>
+          <div class="radio-group">
+            <label
+              ><input type="radio" name="area_urban" value="Ya" required />
+              Ya</label
+            >
+            <label
+              ><input type="radio" name="area_urban" value="Tidak" />
+              Tidak</label
+            >
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Prediksi Sekarang</button>
+      </form>
+    </div>
+  </body>
+</html>
