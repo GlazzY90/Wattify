@@ -12,10 +12,16 @@
   <body>
     <div class="result-container">
       <h2>Hasil Prediksi</h2>
-      <p>Kategori: Anda Boros Nih!</p>
-      <p>Prediksi Tagihan Anda: $693.26</p>
-      <p>Saran untuk Anda: Berhemat Lagi Yah!</p>
-      <a href="/" class="btn-submit">Keluar</a>
+      {% if result.error %}
+        <p class="error">{{ result.error }}</p>
+      {% else %}
+        <p><strong>Kategori:</strong> {{ result.user_category }}</p>
+        <p><strong>Prediksi Tagihan Anda:</strong> {{ result.amount_paid }} (satuan mata uang)</p>
+        <p><strong>Saran untuk Anda:</strong> {{ result.suggestion }}</p>
+        <p><strong>Akurasi Model Regresi (R²):</strong> {{ result.regressor_accuracy }}</p>
+        <p><strong>Akurasi Model Klasifikasi:</strong> {{ result.classifier_accuracy }}</p>
+      {% endif %}
+      <a href="{{ url_for('index') }}" class="btn-submit">Keluar</a>
     </div>
   </body>
 </html>

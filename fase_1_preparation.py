@@ -64,4 +64,4 @@ joblib.dump({
     "feature_order": fitur_final
 }, "processed/dataset_split.pkl")
 
-print("✅ Data preparation selesai. File tersimpan di 'processed/dataset_split.pkl'")
+print("Data preparation selesai. File tersimpan di 'processed/dataset_split.pkl'")

@@ -1,15 +1,13 @@
-# model_training.py
 import matplotlib.pyplot as plt
 from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
 import joblib
 import os
 import json
-
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (
-    mean_absolute_error, mean_squared_error, r2_score,
+    mean_absolute_error, mean_squared_error, root_mean_squared_error, r2_score,
     accuracy_score, classification_report
 )
 from sklearn.model_selection import GridSearchCV
@@ -39,7 +37,7 @@ y_pred_reg = reg_model.predict(X_test)
 
 print("=== EVALUASI REGRESI ===")
 print("MAE :", mean_absolute_error(y_reg_test, y_pred_reg))
-print("RMSE:", mean_squared_error(y_reg_test, y_pred_reg, squared=False))
+print("RMSE:", root_mean_squared_error(y_reg_test, y_pred_reg))
 print("R2  :", r2_score(y_reg_test, y_pred_reg))
 
 # === 3. TRAINING CLASSIFICATION MODEL (Logistic Regression with GridSearchCV) ===
@@ -54,7 +52,7 @@ X_test_scaled[numeric_features] = scaler.transform(X_test[numeric_features])
 # Grid search setup
 param_grid = {
     "C": [0.01, 0.1, 1, 10, 100],
-    "penalty": ["l2"],  # l1 requires solver='liblinear'
+    "penalty": ["l2"],
     "solver": ["lbfgs", "saga"],
     "max_iter": [500, 1000]
 }
@@ -80,7 +78,7 @@ print("Best Params:", grid_clf.best_params_)
 print("Akurasi:", accuracy_score(y_clf_test, y_pred_clf))
 print("Classification Report:\n", classification_report(y_clf_test, y_pred_clf))
 
-# === 4. SIMPAN MODEL DAN SCALER ===
+# === 4. SAVE MODELS, SCALER, AND METRICS ===
 os.makedirs("model", exist_ok=True)
 
 joblib.dump(reg_model, "model/regressor.pkl")
@@ -90,4 +88,12 @@ joblib.dump(scaler, "model/scaler.pkl")
 with open("model/feature_order.json", "w") as f:
     json.dump(fitur, f)
 
-print("\n✅ Model berhasil dilatih dan disimpan.")
+# Save model accuracies
+metrics = {
+    "regressor_r2": r2_score(y_reg_test, y_pred_reg),
+    "classifier_accuracy": accuracy_score(y_clf_test, y_pred_clf)
+}
+with open("model/metrics.json", "w") as f:
+    json.dump(metrics, f)
+
+print("\nOK Model berhasil dilatih dan disimpan.")
